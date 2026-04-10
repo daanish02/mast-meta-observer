@@ -1,0 +1,241 @@
+:root {
+  --bg: #0b1017;
+  --panel: #111925;
+  --muted: #8ea0b8;
+  --text: #e9f1ff;
+  --accent: #2ad7b7;
+  --accent-2: #53a7ff;
+  --danger: #ff6b81;
+  --ok: #35d07f;
+  --border: #1d2a3d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 10% 10%, #142033 0, var(--bg) 48%);
+  color: var(--text);
+  font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+}
+
+.topbar {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px;
+}
+
+.topbar h1 {
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+.topbar p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.layout {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.drop-zone {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  border-style: dashed;
+  text-align: center;
+}
+
+.drop-zone.drag {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px #2ad7b733;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #153052;
+  border: 1px solid #2c5d9f;
+  cursor: pointer;
+}
+
+#file-input {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+}
+
+.meta-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.meta-grid div {
+  display: grid;
+  gap: 6px;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.kpi-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.kpi h3 {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.kpi-value {
+  margin: 10px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.compare-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.bars {
+  display: grid;
+  gap: 10px;
+}
+
+.metric-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.delta-chip {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #1f2a3d;
+  border: 1px solid #2a3a55;
+  color: var(--text);
+}
+
+.delta-chip.better {
+  color: var(--ok);
+  border-color: #2f6b4f;
+}
+
+.delta-chip.worse {
+  color: var(--danger);
+  border-color: #6a3040;
+}
+
+.bar-row {
+  display: grid;
+  gap: 6px;
+}
+
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.track {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #0f1520;
+  border: 1px solid #192234;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+}
+
+.fill.observer {
+  background: var(--accent);
+}
+
+.fill.baseline {
+  background: var(--accent-2);
+}
+
+.diff-row {
+  display: grid;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.diff-track {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: #0f1520;
+  border: 1px solid #192234;
+  position: relative;
+  overflow: hidden;
+}
+
+.diff-center {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: #6f829f;
+}
+
+.diff-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.diff-fill.better {
+  background: linear-gradient(90deg, #1b5e3d, #35d07f);
+}
+
+.diff-fill.worse {
+  background: linear-gradient(90deg, #ff6b81, #7a2f3f);
+}
+
+.details-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.notes {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}

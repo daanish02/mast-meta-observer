@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Benchmark Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Benchmark Dashboard</h1>
+      <p>Drop a benchmark_report.json file to inspect observer vs baseline.</p>
+    </header>
+
+    <main class="layout">
+      <section
+        id="drop-zone"
+        class="card drop-zone"
+        aria-label="Drop benchmark report JSON"
+      >
+        <p><strong>Drop benchmark_report.json here</strong></p>
+        <p>or</p>
+        <label class="btn" for="file-input">Choose File</label>
+        <input id="file-input" type="file" accept="application/json,.json" />
+        <p id="drop-hint" class="muted">Waiting for file...</p>
+      </section>
+
+      <section id="meta" class="card hidden">
+        <h2>Run Info</h2>
+        <div class="grid meta-grid">
+          <div>
+            <span class="label">Project</span><span id="meta-project">-</span>
+          </div>
+          <div>
+            <span class="label">Task</span><span id="meta-task">-</span>
+          </div>
+          <div>
+            <span class="label">Model</span><span id="meta-model">-</span>
+          </div>
+          <div>
+            <span class="label">Reasoning</span
+            ><span id="meta-reasoning">-</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="kpis" class="grid kpi-grid hidden">
+        <article class="card kpi">
+          <h3>Events Delta</h3>
+          <p id="kpi-events" class="kpi-value">0</p>
+        </article>
+        <article class="card kpi">
+          <h3>Total Tokens Delta</h3>
+          <p id="kpi-tokens" class="kpi-value">0</p>
+        </article>
+        <article class="card kpi">
+          <h3>Rollbacks</h3>
+          <p id="kpi-rollbacks" class="kpi-value">0</p>
+        </article>
+        <article class="card kpi">
+          <h3>Success</h3>
+          <p id="kpi-success" class="kpi-value">-</p>
+        </article>
+      </section>
+
+      <section id="compare" class="grid compare-grid hidden">
+        <article class="card">
+          <h3>Events</h3>
+          <div class="bars" id="bars-events"></div>
+        </article>
+        <article class="card">
+          <h3>Total Tokens</h3>
+          <div class="bars" id="bars-tokens"></div>
+        </article>
+        <article class="card">
+          <h3>Input Tokens</h3>
+          <div class="bars" id="bars-input"></div>
+        </article>
+        <article class="card">
+          <h3>Output Tokens</h3>
+          <div class="bars" id="bars-output"></div>
+        </article>
+      </section>
+
+      <section id="details" class="grid details-grid hidden">
+        <article class="card">
+          <h3>Observer Notes</h3>
+          <ul id="observer-notes" class="notes"></ul>
+        </article>
+        <article class="card">
+          <h3>Baseline Notes</h3>
+          <ul id="baseline-notes" class="notes"></ul>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
