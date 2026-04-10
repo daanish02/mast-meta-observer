@@ -1,0 +1,26 @@
+[project]
+name = "mast-meta-observer"
+version = "0.1.0"
+description = "MAST Meta-Observer wrapper layer for DeepAgents"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "deepagents",
+    "langchain-openai>=1.1.12",
+    "langgraph>=0.3.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[tool.uv.sources]
+deepagents = { path = "../deepagents/libs/deepagents", editable = true }
+
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
